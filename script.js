@@ -1,4 +1,4 @@
-$("documeny").ready(function() {
+$("document").ready(function() {
   getNewQuote();
   $("#new").on("click", getNewQuote);
 });
