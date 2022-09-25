@@ -1,41 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Random Quote Machine</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
   </head>
-  <body class="bg-gray text-center">
-    <div class="container">
-      <div class="wrapper jumbotron">
-        <h1 class="title">Random Quote Machine</h1>
-        <blockquote id="block-quote" class="blockquote-reverse jumbotron">
-            <p class="text-center lead"><i class="fa fa-quote-left ontop" aria-hidden="true"></i>
-            <span id="quote"></span><i class="fa fa-quote-right ontop" aria-hidden="false"></i>
-          </p>
-          <footer id="ft">
-            <b><cite id="author"></cite></b>
-          </footer>
-        </blockquote>
-        <div class="row">
-          <div class="col-md-6">
-            <button id="new" class="btn btn-block btn-black btn-lg">
-              <span id="new-icon" class="glyphicon glyphicon-repeat"></span>
-              &nbsp;&nbsp;New Quote
-            </button>
-          </div>
-          <div class="col-md-6">
-            <a href="#" role="button" id="tweet" target="_blank" class="btn btn-block btn-black btn-lg">
-              <i id="tweet-icon" class="fa fa-twitter"></i>
-              &nbsp;&nbsp;Tweet
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
