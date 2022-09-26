@@ -9,10 +9,6 @@ function hex(num: number) {
 export function ensureHexColor(color: string) {
   const parsed = rgba(color);
   if (!parsed) return "#a855f7";
-
-  const [r, g, b] = parsed;
-
-  console.log({ r, g, b }, hex(r), hex(g), hex(b));
-
-  return `#${hex(r)}${hex(g)}${hex(b)}`;
+  const [r, g, b] = parsed.map((c) => hex(c));
+  return `#${r}${g}${b}`;
 }

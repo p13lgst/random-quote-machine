@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -11,6 +13,9 @@ module.exports = {
         primary: "rgb(34 197 94)",
         secondary: "rgb(0 0 0)",
       },
+    },
+    fontFamily: {
+      title: ["Archivo", ...defaultTheme.fontFamily.sans],
     },
   },
   plugins: [],

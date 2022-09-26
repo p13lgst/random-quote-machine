@@ -11,8 +11,6 @@ interface ToggleSwitchProps {
 export default function ToggleSwitch(props: ToggleSwitchProps) {
   const { label, checked, onChange, className } = props;
 
-  console.log("checked", checked);
-
   return (
     <Switch.Group>
       <div className={clsx("flex items-center", className)}>
@@ -21,8 +19,8 @@ export default function ToggleSwitch(props: ToggleSwitchProps) {
           checked={checked}
           onChange={onChange}
           className={clsx(
-            checked ? "bg-blue-600" : "bg-gray-200",
-            "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            checked ? "bg-blue-600" : "bg-black",
+            "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500  dark:ring-offset-black focus:ring-offset-2"
           )}
         >
           <span
