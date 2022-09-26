@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { copyToClipboard } from "./lib/clipboard";
-import { getQuoteText } from "./lib/quote";
-import { getTweetUrl } from "./lib/tweet";
-import { QuoteResponse } from "./types";
-import isError from "./util/isError";
+import { copyToClipboard } from "../lib/clipboard";
+import { getQuoteText } from "../lib/quote";
+import { getTweetUrl } from "../lib/tweet";
+import { QuoteResponse } from "../types";
+import isError from "../util/isError";
 
 async function fetchQuote(): Promise<QuoteResponse> {
   const response = await fetch("https://api.quotable.io/random");

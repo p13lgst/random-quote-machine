@@ -11,7 +11,7 @@ const Button: React.FC<ButtonProps> = (props) => {
   return (
     <button
       className={clsx(
-        "flex bg-purple-500 text-black p-2 rounded-md space-x-2 items-center justify-center",
+        "flex bg-purple-500 text-black p-2 rounded-md space-x-2 items-center justify-center hover:opacity-70",
         disabled && "opacity-50 cursor-not-allowed",
         className
       )}

@@ -1,26 +1,44 @@
-import { createContext, useContext, useEffect } from "react";
-import { useLocalstorageState } from "rooks";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 interface DarkModeContextType {
   darkMode: boolean | undefined;
-  setDarkMode: React.Dispatch<React.SetStateAction<boolean | undefined>>;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const DarkModeContext = createContext<DarkModeContextType | null>(null);
 
 export function DarkModeProvider({ children }: { children: React.ReactNode }) {
-  const [darkMode, setDarkMode] = useLocalstorageState<boolean | undefined>(
-    "darkMode"
-  );
+  const [darkMode, _setDarkMode] = useState<boolean | undefined>(undefined);
+
+  const setDarkMode = useCallback<Dispatch<SetStateAction<boolean>>>((prev) => {
+    _setDarkMode((realPrev) => {
+      const next = typeof prev === "function" ? prev(!!realPrev) : prev;
+      localStorage.setItem("darkMode", next ? "true" : "false");
+      return next;
+    });
+  }, []);
 
   useEffect(() => {
-    if (darkMode === undefined) {
+    const darkMode = window.localStorage.getItem("darkMode");
+    if (darkMode !== "true" && darkMode !== "false") {
       setDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    } else {
+      setDarkMode(darkMode === "true");
     }
+  }, [setDarkMode]);
 
+  useEffect(() => {
     if (darkMode) document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
-  }, [darkMode]);
+  }, [darkMode, setDarkMode]);
 
   return (
     <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
